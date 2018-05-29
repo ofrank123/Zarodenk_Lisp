@@ -1,5 +1,5 @@
 # Zarodenk_Lisp  
-![Alt logo](img/logoColor.svg "logo")
+![Alt logo](img/LogoColorPNG.png "logo")
 
 A Lisp interpreter for our custom LISP dialect, built in Java and running on the JVM.  Final project for Mr. Brown's APCS class, second semester. The dialect will include a few unusual features, such as the ability to include other files and define macros as preprocessor directives.  The initial implementation will be minimalist and based upon John McCarthy's classic paper "A Micro-Manual for LISP - Not the whole truth," a copy of which has been provided in this repository.  We will then slowly add features on an experimental branch and push to the master branch when they are stable.  Our implementation of LISP will utilize some of the datastructures and algorithms we have learned throughout the semester, namely queues and trees.  More will be added here in the next few weeks.
 
