@@ -1,4 +1,4 @@
-# Zarodenk_Lisp
+# Zarodenk_Lisp  
 ![Alt logo](img/logoColor.svg "logo")
 
 A Lisp interpreter for our custom LISP dialect, built in Java and running on the JVM.  Final project for Mr. Brown's APCS class, second semester. The dialect will include a few unusual features, such as the ability to include other files and define macros as preprocessor directives.  The initial implementation will be minimalist and based upon John McCarthy's classic paper "A Micro-Manual for LISP - Not the whole truth," a copy of which has been provided in this repository.  We will then slowly add features on an experimental branch and push to the master branch when they are stable.  Our implementation of LISP will utilize some of the datastructures and algorithms we have learned throughout the semester, namely queues and trees.  More will be added here in the next few weeks.
@@ -7,10 +7,10 @@ Below is a diagram for how the broadphases of our interpreter should work eventu
 
 ![Alt ZLisp Broadphase](img/ZLispBroadDiagram.png "broadphase diagram")
 
-##Preprocessor
+## Preprocessor  
 Any files that are included using the `#include "filename"` directive will be copied directly into the string passed to the lexer in order.  The `#macro "find" "replace"` directive will replace all instances of the find string with the replace string.  These features will be added much later, as they are secondary to our primary goal, which is getting a working interpreter up and running.
 
-##Lexer (Lexical Analysis)
+## Lexer (Lexical Analysis)
 The lexer will take the raw LISP code and turn it into a queue of tokens to be read by the parser.  It will accomplish this via the following steps:
 1. Read file as a `String`  
 2. add whitespace around `(` and `)`  
@@ -26,7 +26,7 @@ The lexer will take the raw LISP code and turn it into a queue of tokens to be r
 NOTE: conditional (`cond`) are the exception to the function rule mentioned above, as they are of the form `(cond (S-EXPR S-EXPR) (S-EXPR S-EXPR))`, where the first `S-EXPR` where the value of the expression is the value of which ever `S-EXPR` evaluates true first  
 
 Ex:
-####Code
+#### Code
 	(def a 3)
 	(cond
 	  ((> a 2)
@@ -34,7 +34,7 @@ Ex:
 	  (T
 	   (print "Small num")))
 	(print "Done!")
-####Token queue returned
+#### Token queue returned
 	Token(LPAREN,)
 	Token(FUNC,)
 	Token(SYM,)
@@ -64,4 +64,4 @@ Ex:
 	Token(STR,)
 	Token(RPAREN,)
 
-##Pareser (Syntactical and Semantic Analysis)
+## Parser (Syntactical and Semantic Analysis)
