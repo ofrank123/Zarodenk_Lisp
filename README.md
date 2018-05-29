@@ -41,8 +41,8 @@ Initially, the following predefined functions will be availible to users of Zaro
 * `NIL` is the name of the empty list `()`
 
 
-## 
-![Alt ZLisp Broadphase](img/ZLispBroadDiagram.png "broadphase diagram")
+## Interpreter
+![Alt ZLisp broad phase](img/ZLispBroadDiagram.png "broadphase diagram")
 
 ### Preprocessor  
 Any files that are included using the `#include "filename"` directive will be copied directly into the string passed to the lexer in order.  The `#macro "find" "replace"` directive will replace all instances of the find string with the replace string.  These features will be added much later, as they are secondary to our primary goal, which is getting a working interpreter up and running.
