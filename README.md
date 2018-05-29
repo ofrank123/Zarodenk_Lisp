@@ -55,10 +55,9 @@ The lexer will take the raw LISP code and turn it into a queue of tokens to be r
 4. Tokens will determine type by using regular expressions (RegEx), and be added in order to a queue of tokens.  A list of Token types has been listed below.  
    * `LPAREN`- `(`  
    * `RPAREN`- `)`  
-   * `SYM`- `a`  
+   * `SYM`- `a` (any none primitive `atom`) 
    * `STR`- `"a"`  
    * `NUM`- `1` (floating points to be added later)  
-   * `FUNC`- `f` (preceding `LPAREN`, unless it's in a cond)  
 5. The queue of tokens will be returned and subsequently fed to the parser
 NOTE: conditional (`cond`) are the exception to the function rule mentioned above, as they are of the form `(cond (S-EXPR S-EXPR) (S-EXPR S-EXPR))`, where the first `S-EXPR` where the value of the expression is the value of which ever `S-EXPR` evaluates true first  
 
@@ -73,35 +72,44 @@ Ex:
 	(print "Done!")
 #### Token queue returned
 	Token(LPAREN,"(")
-	Token(FUNC,"def")
+	Token(SYM,"def")
 	Token(SYM,"a")
 	Token(NUM,"3")
 	Token(RPAREN,")")
 	Token(LPAREN,"(")
-	Token(FUNC,"cond")
+	Token(SYM,"cond")
 	Token(LPAREN,"(")
 	Token(LPAREN,"(")
-	Token(FUNC,">")
+	Token(SYM,">")
 	Token(SYM,"a")
 	Token(NUM,"2")
 	Token(RPAREN,")")
 	Token(LPAREN,"(")
-	Token(FUNC,"print")
+	Token(SYM,"print")
 	Token(STR,""Big num"")
 	Token(RPAREN,")")
 	Token(RPAREN,")")
 	Token(LPAREN,"(")
 	Token(SYM,"T")
 	Token(LPAREN,"(")
-	Token(FUNC,"print")
+	Token(SYM,"print")
 	Token(STR,""Small num"")
 	Token(RPAREN,")")
 	Token(RPAREN,")")
 	Token(RPAREN,")")
 	Token(LPAREN,"(")
-	Token(FUNC,"print")
+	Token(SYM,"print")
 	Token(STR,""Done!"")
 	Token(RPAREN,")")
 
 ### Parser (Syntactical and Semantic Analysis)
-Turns token queue into an abstract syntax tree (AST).  **TO BE WRITTEN**
+Turns token queue into an abstract syntax tree (AST) to be passed to the eval machine.  This will also check for syntactical errors, such as too few or too many parens, or malformed s expressions. The following steps will be taken to construct this AST (recursivley):
+1. Form the root node, which will have each individual s-expression in order (left to right).  
+2. Add each token as a node to the current tree  
+   * for each non `PAREN` token, add it as a leaf node  
+   * for an `LPAREN`, create a new subtree node.  
+   * for an `RPAREN`, go back up a level.  
+3. repeat step 2 recursivley for all Tokens. parens should not be included, as the tree structure will represent the deliniations they represented.  
+
+####AST constructed from token stream returned by previous Lexer example
+
