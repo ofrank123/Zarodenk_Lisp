@@ -111,6 +111,6 @@ Turns token queue into an abstract syntax tree (AST) to be passed to the eval ma
    * for an `RPAREN`, go back up a level.  
 3. repeat step 2 recursivley for all Tokens. parens should not be included, as the tree structure will represent the deliniations they represented.  
 
-#### AST constructed from token stream returned by previous Lexer example
+#### AST constructed from token queue returned by previous Lexer example
 
 ![Alt Zarodenk Lisp AST Diagram](img/ZarodenkLispAST.png "AST diagram")
