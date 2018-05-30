@@ -29,4 +29,22 @@ public interface Lexer {
      * @author Oliver Frank
      *************************************************/
     public Token nextToken();
+    
+    /*************************************************
+     * Check whether there is a next Token to get from the
+     * internal Token queue.  Returns true if there are
+     * more tokens, false if empty;
+     *  
+     * @author Oliver Frank
+     *************************************************/
+    public boolean hasNext();
+
+    /************************************************
+     * Returns a list of lexical errors encountered.
+     * Any tokens not recognized by the lexer will be
+     * caught and thrown as errors.
+     *
+     * @author Oliver Frank
+     ************************************************/
+    public LexicalError[] getLexicalErrors();
 } //end interface Lexer
