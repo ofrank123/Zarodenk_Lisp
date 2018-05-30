@@ -1,4 +1,6 @@
-package zarodenk_lisp.src;
+package common;
+
+import error.SyntacticalError;
 
 /*
   Zarodenk Lisp 2018

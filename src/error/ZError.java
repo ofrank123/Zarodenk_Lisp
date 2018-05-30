@@ -1,6 +1,6 @@
-package zarodenk_lisp.error;
+package error;
 
-public abstract class Error {
+public abstract class ZError {
     String _msg;
     
     public abstract String getError();

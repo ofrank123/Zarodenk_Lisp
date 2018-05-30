@@ -1,4 +1,4 @@
-package zarodenk_lisp.src;
+package common;
 
 /*
 placeholder
