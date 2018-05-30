@@ -1,6 +1,7 @@
 import java.io.File;
+import zarodenk_lisp.error;
 
-package zarodenk_lisp.src;
+package zarodenk_lisp.main;
 /*
   Zarodenk Lisp 2018
   by Oliver Frank, Thet Htay Zaw, and Jude Grodesky
