@@ -1,14 +1,5 @@
 package common;
 
-
-enum TokenType {
-    LPAREN,
-    RPAREN,
-    SYM,
-    STR,
-    NUM,
-}
-
 /***********************
  * public class Token
  * Token contains a number, symbol, String, or Parentheses
@@ -25,6 +16,7 @@ public class Token
      * Denotes tokentype 
      * 
      * @author Jude Grodesky
+     * @param String of token to be parsed
      ************************/
     public Token(String data)
     {
@@ -44,7 +36,4 @@ public class Token
 
 
     }//end constructor
-    
-
-
 }//end Token
