@@ -1,0 +1,35 @@
+Zarodenk_Lisp
+APCS2 pd02
+HW55 -- A Man, A Plan, A Canal: Panama!
+2018-05-31
+
+What jobs are most crucial?
+---------------------------------------------------------------------------------
+Currently, the most important jobs are getting a rudimentery lisp interpreter wo-
+rking.  This will be able to handle arithmetic expressions exclusivley.
+
+Which components constitute core functionality (vs non-essential)?
+---------------------------------------------------------------------------------
+The ability to evaluate a simple lisp S-Expression is the most important function
+.  After this adding the ability to handle functions will be added.  These funct-
+ions should handle recursion by nature, but if not that will be our next step. A-
+fter that, it would be nice to have a sandbox environment, but that is very much
+a stretch goal.
+
+Which components are prerequisites for others?
+---------------------------------------------------------------------------------
+The full interpreter requires the Lexer, Parser, and Evaler.  The Evaler requires
+the Parser, which requires the Lexer.  The Lexer, Parser and Evaler all require
+other components, like the AST and Token classes
+
+Which tasks can be delegated, and which must be collaborativley tackled?
+---------------------------------------------------------------------------------
+The individual parts of the lexer, parser, and evaler should be split up. Putting
+them together will be the part that requires the full team, as debugging the ind-
+vidual features will be difficult without the input of everyone who worked on the
+seperate components.
+
+Timeline (flexible)
+
+Sun 2018-06-02 - Working expression evaluation
+***TO BE ADDED***
