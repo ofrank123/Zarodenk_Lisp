@@ -1,6 +1,7 @@
 package common;
 
 import error.SyntacticalError;
+import ast.AbstractSyntaxTree;
 
 /*
   Zarodenk Lisp 2018
