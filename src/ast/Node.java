@@ -6,7 +6,6 @@ package ast;
  *
  * @author Thet Htay Zaw
  **/
-abstract class Node {
-
-
+abstract class Node {    
+    public abstract boolean isAtomic();
 } 
