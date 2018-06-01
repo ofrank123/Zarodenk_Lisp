@@ -63,3 +63,7 @@ OddFuture :: Wrote README.md, wrote Lexer interface
 OddFuture :: plan, proposal update, TokenType enum
 ==============================================================
 
+2018-05-30
+--------------------------------------------------------------
+OddFuture :: flowchart and uml
+==============================================================
