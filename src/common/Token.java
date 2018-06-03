@@ -24,19 +24,19 @@ public class Token
     {
 	_data = data;
 	
-	if (Pattern.matches("(", data)) {
+	if (Pattern.matches("(", data)) { //left paren token
 	    _type = TokenType.LPAREN;
 	}
-	else if (Pattern.matches(")", data)) {
+	else if (Pattern.matches(")", data)) { //right paren token
 	    _type = TokenType.RPAREN;
 	}
-	else if (Pattern.matches(" \"*\" " , data) ) {
+	else if (Pattern.matches(" \"*\" " , data) ) { //string token
 	    _type = TokenType.STR;
 	}
-	else if (Pattern.matches("/^[-+]?\\d+$/", data) ) {
+	else if (Pattern.matches("/^[-+]?\\d+$/", data) ) { //decimal token
 	    _type = TokenType.NUM;
 	}
-	else {
+	else { //any other string is a symbol
 	    _type = TokenType.SYM;
 	}
     }//end constructor
@@ -70,10 +70,6 @@ public class Token
 	System.out.println(a.getType());
 
 	Token b = new Token(")");
-	System.out.println(b.getType());
-
-
-
-
+x	System.out.println(b.getType());
     }//end main
 }//end Token
