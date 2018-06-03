@@ -32,7 +32,7 @@ public class AbstractSyntaxTree extends Node {
 	return _nodeList.size();
     } 
 
-    public boolean isAtom() {
+    public boolean isAtomic() {
         return false;
     }
 } 

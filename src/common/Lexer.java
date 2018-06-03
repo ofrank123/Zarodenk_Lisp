@@ -25,7 +25,7 @@ public interface Lexer {
 
     /*************************************************
      * Get the next Token in this Lexer's token queue. Tokens are
-     * enqueued upon the call to buildLexer().
+     * enqueued upon the call to buildLexer(). 
      * 
      * @author Oliver Frank
      *************************************************/
@@ -34,12 +34,20 @@ public interface Lexer {
     /*************************************************
      * Check whether there is a next Token to get from the
      * internal Token queue.  Returns true if there are
-     * more tokens, false if empty;
+     * more tokens, false if empty.
      *  
      * @author Oliver Frank
      *************************************************/
     public boolean hasNext();
 
+    /*************************************************
+     * return the nextToken, but don't move the token queue
+     * along.
+     *  
+     * @author Oliver Frank
+     *************************************************/
+    public Token peekToken();
+    
     /************************************************
      * Returns a list of lexical errors encountered.
      * Any tokens not recognized by the lexer will be

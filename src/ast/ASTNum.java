@@ -10,9 +10,9 @@ public class ASTNum extends Leaf {
 
     private int _num;
 
-    public ASTNum(int value)
+    public ASTNum(String value)
     {
-	_num = value;
+	_num = Integer.parseInt(value);
     }
 
     public int getVal()
