@@ -2,6 +2,7 @@ package common;
 
 import java.io.File;
 import error.LexicalError;
+import java.io.IOException;
 /*
   Zarodenk Lisp 2018
   by Oliver Frank, Thet Htay Zaw, and Jude Grodesky
@@ -21,7 +22,7 @@ public interface Lexer {
      * @param File to be lexed, parsed, and evaled
      * @author Oliver Frank
      ***************************/
-    public void buildLexer(File file);
+    public void buildLexer(File file) throws IOException;
 
     /*************************************************
      * Get the next Token in this Lexer's token queue. Tokens are
