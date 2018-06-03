@@ -39,15 +39,7 @@ public class ZParser implements Parser
      **/
     public void buildAST(Lexer lex)
     {
-	/**
-	 * Note from Thet: I can't seem to find a way to make this recursive
-	 * Or maybe more so I can't think of a way to do so or this make this super clean
-	 * And it's partially due to how AST's add works and this add works
-	 * AST's add just add whatever it receives in, while ZParser's add 
-	 * has to go as far down as a possible before adding to the tree
-	 * There's also the thing with different parameters
-	 **/
-	
+	buildAST_R(_tree, lex);
     }
 
     private AbstractSyntaxTree buildAST_R(AbstractSyntaxTree ast, Lexer lex) {
@@ -71,7 +63,8 @@ public class ZParser implements Parser
 		break;
 	    }
 	}
-	/* Should never reach this */
+	/* Reaches this if there isn't enough closing RPARENS */
+	System.out.println("Reached EOF without closing parenthesis")
 	return null;
     }
     
