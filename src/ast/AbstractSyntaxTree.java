@@ -28,6 +28,10 @@ public class AbstractSyntaxTree extends Node {
         return _nodeList.get(i);
     }
 
+    public int size() {
+	return _nodeList.size();
+    } 
+
     public boolean isAtom() {
         return false;
     }

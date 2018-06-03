@@ -1,7 +1,7 @@
 package common;
 
 import error.SyntacticalError;
-import ast.AbstractSyntaxTree;
+import ast.*;
 
 /*
   Zarodenk Lisp 2018
@@ -14,7 +14,6 @@ import ast.AbstractSyntaxTree;
  * to be passed to the eval machine
  * @author Thet Htay Zaw
  ***************************/
-
 public interface Parser {
 
     /************************
