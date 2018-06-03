@@ -70,6 +70,6 @@ public class Token
 	System.out.println(a.getType());
 
 	Token b = new Token(")");
-x	System.out.println(b.getType());
+	System.out.println(b.getType());
     }//end main
 }//end Token

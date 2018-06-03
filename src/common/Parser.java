@@ -22,7 +22,7 @@ public interface Parser {
      * @param Token to be added
      * @author Thet Htay Zaw
      ************************/
-    public void add(Token token);
+    public void buildAST(Lexer lex);
 
 
     /************************
