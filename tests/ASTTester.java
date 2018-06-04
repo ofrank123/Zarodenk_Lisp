@@ -27,24 +27,24 @@ public class ASTTester
 	sample.add(NumNode);
 	sample.add(StrNode);
 
-	System.out.println( sample.get(0).getVal() ); //Should be def
-	System.out.println( sample.get(1).getVal() ); //Should be 11
-	System.out.println( sample.get(2).getVal() ); //Should be Big
+	System.out.println( ((ASTSym) sample.get(0)).getVal() ); //Should be def
+	System.out.println( ((ASTNum) sample.get(1)).getVal() ); //Should be 11
+	System.out.println( ((ASTStr) sample.get(2)).getVal() ); //Should be Big
 
-	AbstractSyntaxTree example = new AbstractSynraxTree();
+	AbstractSyntaxTree example = new AbstractSyntaxTree();
 	ASTNum NNode = new ASTNum("20");
 	ASTStr STNode = new ASTStr("Small");
 	ASTSym SYNode = new ASTSym(">");
 
 	sample.add(example);
 	System.out.println("\nTesting subtree"); 
-	System.out.println( "is Atomic?: " + sample.get(3).isAtomic() );
-	sample.get(3).add(NNode);
-	sample.get(3).add(STNode);
-	sample.get(3).add(SYNode);
-	System.out.println( sample.get(3).get(0).getVal() ); //Should be 20
-	System.out.println( sample.get(3).get(1).getVal() ); //Should be Small
-	System.out.println( sample.get(3).get(2).getVal() ); //Should be >
+	System.out.println( "is Atomic?: " + ((AbstractSyntaxTree) sample.get(3)).isAtomic() );
+	((AbstractSyntaxTree) sample.get(3)).add(NNode);
+	((AbstractSyntaxTree) sample.get(3)).add(STNode);
+	((AbstractSyntaxTree) sample.get(3)).add(SYNode);
+	System.out.println( ((ASTNum)((AbstractSyntaxTree)sample.get(3)).get(0)).getVal() ); //Should be 20
+	System.out.println( ((ASTStr)((AbstractSyntaxTree)sample.get(3)).get(1)).getVal() ); //Should be Small
+	System.out.println( ((ASTSym)((AbstractSyntaxTree)sample.get(3)).get(2)).getVal() ); //Should be >
 	
 	
     } 
