@@ -8,7 +8,7 @@ package ast;
  ********************/
 public class ASTStr extends Leaf {
 
-    private String _str;
+    //private String _str;
 
     /****************************
      * constructor for ASTStr
@@ -18,7 +18,8 @@ public class ASTStr extends Leaf {
      ****************************/
     public ASTStr(String value)
     {
-	_str = value;
+	//_str = value;
+	_val = value;
     }
 
     /****************************
@@ -29,7 +30,8 @@ public class ASTStr extends Leaf {
      ****************************/ 
     public String getVal()
     {
-	return _str;
+	//return _str;
+	return _val;
     } 
 
 } 

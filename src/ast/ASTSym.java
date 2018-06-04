@@ -8,7 +8,7 @@ package ast;
  ********************/
 public class ASTSym extends Leaf {
 
-    private String _sym;
+    //private String _sym;
 
     /****************************
      * constructor for ASTSym
@@ -18,7 +18,8 @@ public class ASTSym extends Leaf {
      ****************************/
     public ASTSym(String value)
     {
-	_sym = value;
+	//_sym = value;
+	_val = value;
     }
 
     /****************************
@@ -29,7 +30,8 @@ public class ASTSym extends Leaf {
      ****************************/ 
     public String getVal()
     {
-	return _sym;
+	//return _sym;
+	return _val;
     } 
 
 } 

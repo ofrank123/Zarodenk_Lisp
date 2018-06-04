@@ -62,4 +62,8 @@ public class AbstractSyntaxTree extends Node {
     public boolean isAtomic() {
         return false;
     }
+
+    public String getVal() {
+	return "";
+    } 
 } 

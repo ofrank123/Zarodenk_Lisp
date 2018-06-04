@@ -8,7 +8,8 @@ package ast;
  * @author Thet Htay Zaw
  *********************************************/
 abstract class Node {
-
+    
+    protected String _val; 
     /*****************************
      * returns whether or not 
      * the Node is an atomic value
@@ -16,4 +17,12 @@ abstract class Node {
      * @author Oliver Frank
      *****************************/
     public abstract boolean isAtomic();
+
+    
+    /***************************
+     * returns the value of _val
+     *
+     * @author Thet Htay Zaw
+     ***************************/
+    public abstract String getVal(); 
 } 
