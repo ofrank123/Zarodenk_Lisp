@@ -22,7 +22,7 @@ public interface Lexer {
      * @param File to be lexed, parsed, and evaled
      * @author Oliver Frank
      ***************************/
-    public void buildLexer(File file) throws IOException;
+    public void buildLexer(String path) throws IOException;
 
     /*************************************************
      * Get the next Token in this Lexer's token queue. Tokens are
