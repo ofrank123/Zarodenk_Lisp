@@ -14,7 +14,8 @@ import error.SyntacticalError;
  *********************************/
 public class ZParser implements Parser
 {
-
+    int depth;
+    
     private AbstractSyntaxTree _tree;
 
     /**********************************
@@ -26,6 +27,7 @@ public class ZParser implements Parser
     public ZParser()
     {
 	_tree = new AbstractSyntaxTree();
+	depth = 0;
     }
 
 
@@ -38,7 +40,8 @@ public class ZParser implements Parser
      **********************************/
     public void buildAST(Lexer lex)
     {
-	buildAST_R(_tree, lex);
+	
+	_tree = buildAST_R(_tree, lex);
     }
 
     /**************************************
@@ -69,9 +72,8 @@ public class ZParser implements Parser
 		break;
 	    }
 	}
-	/* Reaches this if there isn't enough closing RPARENS */
-	System.out.println("Reached EOF without closing parenthesis");
-	return null;
+	/* Reaches this if there aren't enough closing RPARENS */
+	return ast;
     }
     
     /*************************

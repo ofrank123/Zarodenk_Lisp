@@ -13,7 +13,7 @@ public class Namespace {
     }
 
     public void addNum(String name, ASTNum num) {
-	nums.put(name, num.getVal());
+	nums.put(name, Integer.parseInt(num.getVal()));
     }
 
     public void addString(String name, ASTStr str) {

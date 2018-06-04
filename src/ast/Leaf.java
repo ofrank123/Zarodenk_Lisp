@@ -23,7 +23,8 @@ public abstract class Leaf extends Node {
 	System.out.println("Item atomic");
     }
 
-    public void get(int i) {
+    public Node get(int i) {
 	System.out.println("Item atomic");
+	return null;
     }
 } 
