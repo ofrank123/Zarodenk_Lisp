@@ -24,16 +24,16 @@ public class Token
     {
 	_data = data;
 	
-	if (Pattern.matches("(", data)) { //left paren token
+	if (Pattern.matches("\\(", data)) { //left paren token
 	    _type = TokenType.LPAREN;
 	}
-	else if (Pattern.matches(")", data)) { //right paren token
+	else if (Pattern.matches("\\)", data)) { //right paren token
 	    _type = TokenType.RPAREN;
 	}
-	else if (Pattern.matches(" \"*\" " , data) ) { //string token
+	else if (Pattern.matches("\"(.*?)\"" , data) ) { //string token
 	    _type = TokenType.STR;
 	}
-	else if (Pattern.matches("/^[-+]?\\d+$/", data) ) { //decimal token
+	else if (Pattern.matches("[-+]?\\d+", data) ) { //decimal token
 	    _type = TokenType.NUM;
 	}
 	else { //any other string is a symbol

@@ -6,7 +6,9 @@
   <property name="src" location="src"/>
   <property name="build" location="build"/>
   <property name="dist" location="dist"/>
+  <property name="test" location="tests"/>
 
+  
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp/>
@@ -20,6 +22,13 @@
     <javac srcdir="${src}" destdir="${build}"/>
   </target>
 
+  <target name="test" depends="compile"
+        description="compile the tests">
+    <!-- Compile the Java code from ${src} into ${build} -->
+    <javac srcdir="${test}" destdir="${build}"/>
+  </target>
+
+  
   <target name="dist" depends="compile"
         description="generate the distribution">
     <!-- Create the distribution directory -->

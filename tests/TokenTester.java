@@ -21,7 +21,7 @@ public class TokenTester
 	System.out.println( "\n" + d.getData() );
 	System.out.println( d.getType() );
 
-	Token e = new Token("Big");
+	Token e = new Token("\"Big\"");
 	System.out.println("\n" + e.getData() );
 	System.out.println( e.getType() );
 
