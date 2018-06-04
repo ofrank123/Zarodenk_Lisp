@@ -64,6 +64,6 @@ public class AbstractSyntaxTree extends Node {
     }
 
     public String getVal() {
-	return "";
+	return null;
     } 
 } 

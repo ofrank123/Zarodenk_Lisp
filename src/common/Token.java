@@ -60,6 +60,12 @@ public class Token
     }
 
 
+    public String toString() {
+	String ret = _data;
+	ret += " - " + _type;
+	return ret;
+    }
+    
     /******************
      *Main testing constructor
      *

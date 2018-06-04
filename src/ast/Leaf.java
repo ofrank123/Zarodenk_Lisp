@@ -18,4 +18,12 @@ public abstract class Leaf extends Node {
     public boolean isAtomic() {
         return true;
     }
+
+    public void add(Node node) {
+	System.out.println("Item atomic");
+    }
+
+    public void get(int i) {
+	System.out.println("Item atomic");
+    }
 } 

@@ -7,7 +7,7 @@ package ast;
  *
  * @author Thet Htay Zaw
  *********************************************/
-abstract class Node {
+public abstract class Node {
     
     protected String _val; 
     /*****************************
@@ -24,5 +24,9 @@ abstract class Node {
      *
      * @author Thet Htay Zaw
      ***************************/
-    public abstract String getVal(); 
+    public abstract String getVal();
+
+    public abstract void add(Node node);
+
+    public abstract Node get(int i);
 } 
