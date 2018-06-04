@@ -7,7 +7,7 @@ package ast;
  *
  * @author Thet Htay Zaw
  *******************************/
-abstract class Leaf extends Node {
+public abstract class Leaf extends Node {
 
     /********************************
      * returns true because the value

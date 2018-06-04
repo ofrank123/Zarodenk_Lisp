@@ -2,6 +2,7 @@ package eval;
 
 import java.util.HashMap;
 import ast.AbstractSyntaxTree;
+import error.RuntimeError;
 
 /****************************
  * 
