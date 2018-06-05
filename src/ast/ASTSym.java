@@ -19,6 +19,7 @@ public class ASTSym extends Leaf {
     public ASTSym(String value)
     {
 	//_sym = value;
+	type = NType.SYM;
 	_val = value;
     }
 

@@ -8,6 +8,8 @@ package ast;
  * @author Thet Htay Zaw
  *********************************************/
 public abstract class Node {
+
+    public NType type;
     
     protected String _val; 
     /*****************************

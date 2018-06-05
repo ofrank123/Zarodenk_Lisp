@@ -19,13 +19,13 @@
   <target name="compile" depends="init"
         description="compile the source">
     <!-- Compile the Java code from ${src} into ${build} -->
-    <javac srcdir="${src}" destdir="${build}"/>
+    <javac srcdir="${src}" destdir="${build}" debug="true" debuglevel="lines,vars,source"/>
   </target>
 
   <target name="test" depends="compile"
         description="compile the tests">
     <!-- Compile the Java code from ${src} into ${build} -->
-    <javac srcdir="${test}" destdir="${build}"/>
+    <javac srcdir="${test}" destdir="${build}" debug="true" debuglevel="lines,vars,source"/>
   </target>
 
   

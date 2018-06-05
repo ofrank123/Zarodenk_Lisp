@@ -1,17 +1,22 @@
 package eval.data;
 
+import eval.ZEvaler;
 import ast.*;
 
-public class Function {
-    AbstractSyntaxTree ast;
-    Leaf[] args;
+
+/*********************** 
+ * public abstract class Function
+ * Function class to define all function objects under
+ * 
+ * @author Oliver Frank
+ ***********************/
+public abstract class Function {
     
-    public Function(AbstractSyntaxTree cast, Leaf[] cargs) {
-	ast = cast;
-	args = cargs;
-    }
-    
-    public AbstractSyntaxTree getVal() {
-	return ast;
-    }
+    /*********************** 
+     * Does action specified by function being written
+     * 
+     * @params List of args, evaler, global namespace
+     * @author Oliver Frank
+     ***********************/
+    public abstract Leaf evalF(Node[] args, ZEvaler evaler, Namespace gnsp);
 }

@@ -22,6 +22,7 @@ public class AbstractSyntaxTree extends Node {
     public AbstractSyntaxTree()
     {
 	_nodeList = new ArrayList<Node>();
+	type = NType.AST;
     }
 
     /******************************

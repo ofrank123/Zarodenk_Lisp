@@ -18,7 +18,7 @@ public class ASTStr extends Leaf {
      ****************************/
     public ASTStr(String value)
     {
-	//_str = value;
+	type = NType.STR;
 	_val = value;
     }
 
