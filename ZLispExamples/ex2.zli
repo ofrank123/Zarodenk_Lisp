@@ -1,0 +1,2 @@
+(func 123 (func "str" 2) var)
+(beep 1)

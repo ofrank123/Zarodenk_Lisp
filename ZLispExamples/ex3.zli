@@ -1,0 +1,4 @@
+(def a 3)
+(def b a)
+(def a 4)
+(quote b)
