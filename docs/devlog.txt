@@ -55,12 +55,14 @@ LESSONS LEARNED
 2018-05-29
 --------------------------------------------------------------
 OddFuture :: Wrote README.md, wrote Lexer interface
+ThetHtayZaw :: wrote Parser interface
 ==============================================================
 
 
 2018-05-30
 --------------------------------------------------------------
 OddFuture :: plan, proposal update, TokenType enum
+ThetHtayZaw :: wrote ast files
 JudeGrodesky :: Token 
 ==============================================================
 
@@ -73,4 +75,9 @@ JudeGrodesky :: Token regex
 2018-06-02
 --------------------------------------------------------------
 JudeGrodesky :: Lexer Implementation
+ThetHtayZaw :: Incomplete Implementation of ZParser
 ==============================================================
+
+2018-06-03
+--------------------------------------------------------------
+ThetHtayZaw :: JavaDoc Comments, Tester files, Typecasting workaround
