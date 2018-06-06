@@ -1,0 +1,40 @@
+Zarodenk_Lisp
+APCS2 pd02
+HW58 -- Keeping the Pointy End Pointing Upwards
+W 2018-06-06
+
+What jobs are most crucial?
+--------------------------------------
+- Adding ASTList as a leaf of AbstractSyntaxTree
+- Adding the functions under README's functions.
+	- We have the booleans now but we still need to add in most of the predefined functions 
+- After these two we have user defined functions 
+	
+	
+Which components constitute core functionality (vs non essential)? 
+-------------------------------------------------------------------
+- Both ASTList and the predefined functions consitute core functionality. 
+- Without ASTList, we will not be able to code some of the predefined functions 
+- And we need the predefined functions because they are a main part of what the user uses 
+- We are also allowing user defined functions
+- Non essential is a sandbox mode where the user can input expressions that gets evaluated
+	- But this is absolutely last after everything else
+
+Which components are prerequisites for others? 
+------------------------------------------------
+- ASTList is a prerequisite for some of the prerequisite methods are stated above
+- And the predefined functions will allow for user defined functions
+
+Which tasks can be delegated, and which must be collaboratively tackled? 
+--------------------------------------------------------------------------
+- ASTList can be done by one person
+- The predefined functions will be split among the three of us 
+	- Debugging may require a group effort 
+
+	
+Timeline: 
+- ASTList to be done in class or as soon as possible
+- The predefined functions should be mostly done by the end of Wednesday or the start of Thursday
+- User defined function functionality must be finished by the end of Thursday 
+	
+	
