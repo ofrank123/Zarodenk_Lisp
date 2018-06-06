@@ -117,3 +117,7 @@ Turns token queue into an abstract syntax tree (AST) to be passed to the eval ma
 
 ### Evaler
 The evaler evaluates the abstract syntax tree produced by the parser, and performs the actions asked by it.  To evaluate the tree, a post order traversal will be used to run through the tree and evaluate each subtree. Except when it is a special case (cond sub expressions, for example), the symbol directly at the start of a subtree will be assumed to be a function.  When a definition (def or defunc) is called, the symbol being assigned a value will be saved in the namespace for the scope where the call is made.  Generally the scope will be global, except in functions, where it will be in the namespace of that function.  The “value” of a function will be defined as the AST described in that function definition.  Then, when evaluating the function when it is called later, this AST will be substituted in for the function definition, along with the arguments specified in it’s argument list.  This substitution will only be done as needed, using a “lazy” strategy similar to Haskell.  This will enable recursion to be carried out efficiently and easily.
+
+### Launch Instructions
+1. Clone the repository
+2. Type `./demo.sh` in the command line
