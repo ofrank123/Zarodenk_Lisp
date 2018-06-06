@@ -61,6 +61,8 @@ public class ZEvaler implements Evaler {
 		    return new ASTStr(val);
 		} else if (Pattern.matches("[-+]?\\d+", val)) {
 		    return new ASTNum(val);
+		} else if (Pattern.matches("T|NIL", val)) {
+		    return new ASTBool(val);
 		} else {
 		    return evalNode(new ASTSym(val));
 		}

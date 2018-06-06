@@ -31,6 +31,11 @@ public class Namespace {
 	 *******************************/
 	addFunc("quote", new Quote());
 	addFunc("def", new Def());
+	addFunc("equal", new Equal());
+	//Boolean Operators
+	addFunc("and", new And());
+	addFunc("not", new Not());
+	addFunc("or", new Or());
     }
 
     /*********************** 

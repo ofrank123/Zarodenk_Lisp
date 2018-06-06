@@ -12,5 +12,6 @@ public enum TokenType {
     RPAREN, //)
     SYM,    //a
     STR,    //"a"
-    NUM     //1
+    NUM,    //1
+    BOOL    //T or NIL
 }

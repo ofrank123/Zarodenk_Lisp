@@ -70,6 +70,9 @@ public class ZParser implements Parser
 	    case STR:
 		ast.add(new ASTStr(lex.nextToken().getData()));
 		break;
+	    case BOOL:
+		ast.add(new ASTBool(lex.nextToken().getData()));
+		break;
 	    }
 	}
 	/* Reaches this if there aren't enough closing RPARENS */

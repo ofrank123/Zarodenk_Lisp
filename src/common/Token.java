@@ -36,6 +36,9 @@ public class Token
 	else if (Pattern.matches("[-+]?\\d+", data) ) { //decimal token
 	    _type = TokenType.NUM;
 	}
+	else if (Pattern.matches("T|NIL", data) ) {
+	    _type = TokenType.BOOL;
+	}
 	else { //any other string is a symbol
 	    _type = TokenType.SYM;
 	}
