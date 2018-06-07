@@ -6,9 +6,9 @@ import eval.data.*;
 
 
 public class And extends Function {
-    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace gnsp) {
+    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp) {
 	for(int i = 0; i < args.length; i++) {
-	    Leaf argi = evaler.evalNode(args[i]);
+	    Leaf argi = evaler.evalNode(args[i], nsp);
 	    if(argi == null) {
 		System.out.println("Error: and recieved null argument");
 		System.exit(1);

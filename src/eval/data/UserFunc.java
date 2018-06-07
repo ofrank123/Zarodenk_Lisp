@@ -4,13 +4,13 @@ import ast.*;
 import eval.*;
 import eval.data.*;
 
-public class UserFunc {
+public class UserFunc extends Function {
     private ASTSym[] argNames;
-    private AbstractSyntaxTree funcTree;
+    private Node funcTree;
     
-    public UserFunc(ASTSym[] cargNames, AbstractSyntaxTree cfuncTree) {
+    public UserFunc(ASTSym[] cargNames, Node cfuncTree) {
 	argNames = cargNames;
-	cfuncTree = funcTree;
+	funcTree = cfuncTree;
     }
     
     public Leaf evalF(Node[] args, ZEvaler evaler, Namespace gnsp) {
@@ -26,10 +26,10 @@ public class UserFunc {
 		System.exit(1);
 		return null;
 	    } else {
-		lnsp.addVar(argNames[i].getVal(), evaler.evalNode(args[i]));
+		lnsp.addVar(argNames[i].getVal(), evaler.evalNode(args[i], lnsp));
 	    }
-	}
-	return null;
+	} 
+	return evalNode(funcTree, lnsp, gnsp, evaler);
     }
 
     /***********************************************
@@ -66,7 +66,7 @@ public class UserFunc {
 	for(int i = 1; i < ast.size(); i++) {
 	    args[i-1] = ast.get(i);
 	}
-	return evalAsF(ast.get(0), lnsp, gnsp).evalF(args, evaler, gnsp);
+	return evalAsF(ast.get(0), lnsp, gnsp).evalF(args, evaler, lnsp);
     }
 	
     public Function evalAsF(Node f, Namespace lnsp, Namespace gnsp) {
