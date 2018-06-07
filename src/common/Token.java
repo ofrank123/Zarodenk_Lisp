@@ -39,6 +39,9 @@ public class Token
 	else if (Pattern.matches("T|NIL", data) ) {
 	    _type = TokenType.BOOL;
 	}
+	else if (Pattern.matches("'", data) ) {
+	    _type = TokenType.QUOTE;
+	}
 	else { //any other string is a symbol
 	    _type = TokenType.SYM;
 	}

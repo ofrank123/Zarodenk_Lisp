@@ -61,6 +61,12 @@ public class ZParser implements Parser
 	    case RPAREN:
 		lex.nextToken();
 		return ast;
+	    case QUOTE:
+		lex.nextToken();
+		AbstractSyntaxTree astToAdd = new AbstractSyntaxTree();
+		astToAdd.add(new ASTSym("quote"));
+		ast.add(buildAST_R(astToAdd, lex));
+		return ast;
 	    case SYM:
 		ast.add(new ASTSym(lex.nextToken().getData()));
 		break;

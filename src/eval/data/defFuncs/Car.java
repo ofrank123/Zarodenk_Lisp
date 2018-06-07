@@ -39,7 +39,7 @@ public class Car extends Function
 	    System.exit(1);
 	}
 
-	if ( ((ASTList) arg0).isEmpty() ) {
+	if ( ((ASTList) arg0).size() == 0 ) {
 	    System.out.println("Error: car only takes a non-empty list");
 	}
 

@@ -1,2 +1,3 @@
-(def a (quote ()))
-(cons a (quote ()))
+(def a 3)
+(def b (cons a '()))
+(cons 4 b)

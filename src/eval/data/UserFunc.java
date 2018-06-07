@@ -1,6 +1,8 @@
 package eval.data;
 
 import ast.*;
+import eval.*;
+import eval.data.*;
 
 public class UserFunc {
     private ASTSym[] argNames;
@@ -24,9 +26,10 @@ public class UserFunc {
 		System.exit(1);
 		return null;
 	    } else {
-		lnsp.addVar(argNames[i], evaler.eval(args[i]));
+		lnsp.addVar(argNames[i].getVal(), evaler.evalNode(args[i]));
 	    }
 	}
+	return null;
     }
 
     /***********************************************
@@ -36,11 +39,11 @@ public class UserFunc {
      * @param Node to evaluate
      * @author Oliver Frank
      ***********************************************/
-    public Leaf evalNode(Node n, Namespace lnsp, Namespace gnsp) {
+    public Leaf evalNode(Node n, Namespace lnsp, Namespace gnsp, ZEvaler evaler) {
 	if(n.type == NType.SYM) {
 	    return lnsp.getVar(n.getVal());
 	} else if (n.type == NType.AST){
-	    return evalAST((AbstractSyntaxTree) n, Namespace lnsp, Namespace gnsp);
+	    return evalAST((AbstractSyntaxTree) n, lnsp, gnsp, evaler);
 	} else {
 	    return (Leaf) n;
 	}
@@ -54,7 +57,7 @@ public class UserFunc {
      * @param AbstractSyntaxTree to evaluate
      * @author Oliver Frank
      ***********************/
-    public Leaf evalAST(AbstractSyntaxTree ast, Namespace lnsp. Namespace gnsp) {
+    public Leaf evalAST(AbstractSyntaxTree ast, Namespace lnsp, Namespace gnsp, ZEvaler evaler) {
 	if(ast.size() < 2) {
 	    System.out.println("Error: not a statement");
 	    System.exit(1);
@@ -63,17 +66,18 @@ public class UserFunc {
 	for(int i = 1; i < ast.size(); i++) {
 	    args[i-1] = ast.get(i);
 	}
-	return evalAsF(ast.get(0), lnsp, gnsp).evalF(args, this, gnsp);
+	return evalAsF(ast.get(0), lnsp, gnsp).evalF(args, evaler, gnsp);
     }
 	
     public Function evalAsF(Node f, Namespace lnsp, Namespace gnsp) {
-	if(f == NType.SYM) {
-	    return lnsp.getVar(n.getVal());
-	} else if (f.isAtomic || f == NType.LIST) {
+	if(f.type == NType.SYM) {
+	    return lnsp.getFunc(f.getVal());
+	} else if (f.isAtomic() || f.type == NType.LIST) {
 	    System.out.println("Error: " + f.getVal() + "Not a function");
 	    System.exit(1);
+	    return null;
 	} else {
-	    
+	    return null;
 	}
     }
 }

@@ -85,14 +85,14 @@ public class ZEvaler implements Evaler {
     }
 	
     public Function evalAsF(Node f) {
-	if(f == NType.SYM) {
-	    return nsp.getFunc(f);
-	} else if (f.isAtomic || f == NType.LIST) {
+	if(f.type == NType.SYM) {
+	    return nsp.getFunc(f.getVal());
+	} else if (f.isAtomic() || f.type == NType.LIST) {
 	    System.out.println("Error: " + f.getVal() + "Not a function");
 	    System.exit(1);
 	    return null;
 	} else {
-	    return lambda((AbstractSyntaxTree) fast);
+	    return lambda((AbstractSyntaxTree) f);
 	}
     }
 
@@ -103,8 +103,9 @@ public class ZEvaler implements Evaler {
 	    return null;
 	}
 	if(fast.get(1).type != NType.AST) {
-	    System.out.println("Error: List of args required " + );
+	    System.out.println("Error: List of args required ");
 	}
+	return null;
     }
     
     /*********************** 

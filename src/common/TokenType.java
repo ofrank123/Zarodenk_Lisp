@@ -13,5 +13,6 @@ public enum TokenType {
     SYM,    //a
     STR,    //"a"
     NUM,    //1
-    BOOL    //T or NIL
+    BOOL,    //T or NIL
+    QUOTE
 }

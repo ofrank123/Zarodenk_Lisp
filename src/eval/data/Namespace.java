@@ -37,7 +37,8 @@ public class Namespace {
 	addFunc("equal", new Equal());
 	//List Handling
 	addFunc("cons", new Cons());
-	addFunc("car", new Cdr());
+	addFunc("cdr", new Cdr());
+	addFunc("car", new Car());
 	//Boolean Operators
 	addFunc("and", new And());
 	addFunc("not", new Not());
@@ -46,7 +47,7 @@ public class Namespace {
 
     public Namespace(ZEvaler cevaler, Namespace nsp) {
 	funcs = new HashMap<String, Function>();
-	vars = new HasmMpa<String, Leaf>();
+	vars = new HashMap<String, Leaf>();
 	for(String key: nsp.funcs.keySet()) {
 	    funcs.put(key, nsp.getFunc(key));
 	}

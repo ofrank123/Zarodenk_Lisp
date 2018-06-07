@@ -37,7 +37,7 @@ public class ZLexer implements Lexer
 
         contents = contents.replaceAll("\\(", " ( ");
 	contents = contents.replaceAll("\\)", " ) ");
-
+	contents = contents.replaceAll("'", " ' ");
 	/*WARNING --- DON'T TOUCH --- WARNING*/
 	String regex = "\"([^\"]*)\"|(\\S+)"; //Voodoo magic
 	/*WARNING --- DON'T TOUCH --- WARNING*/
