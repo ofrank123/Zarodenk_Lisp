@@ -37,13 +37,25 @@ public class Namespace {
 	addFunc("equal", new Equal());
 	//List Handling
 	addFunc("cons", new Cons());
-	addFunc("car", new Car());
+	addFunc("car", new Cdr());
 	//Boolean Operators
 	addFunc("and", new And());
 	addFunc("not", new Not());
 	addFunc("or", new Or());
     }
 
+    public Namespace(ZEvaler cevaler, Namespace nsp) {
+	funcs = new HashMap<String, Function>();
+	vars = new HasmMpa<String, Leaf>();
+	for(String key: nsp.funcs.keySet()) {
+	    funcs.put(key, nsp.getFunc(key));
+	}
+	for(String key: nsp.vars.keySet()) {
+	    vars.put(key, nsp.getVar(key));
+	}
+	evaler = cevaler;
+    }
+    
     /*********************** 
      * Add function to this namespace
      * 
@@ -94,4 +106,13 @@ public class Namespace {
 	System.exit(1);
 	return null;
     }
+    
+    public boolean contains(String name) {
+	if(vars.containsKey(name))
+	    return true;
+	if(funcs.containsKey(name))
+	    return true;
+	return false;
+    }
+
 }
