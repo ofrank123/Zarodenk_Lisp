@@ -29,7 +29,7 @@ Initially, the following predefined functions will be availible to users of Zaro
 * `(atom e)` evaluates to `T` if the expression.  
 * `(cond (pi ei) .. (pn en))` evaluates to value ei where pi is the first of the p's whose value is NOT `NIL` (or `T`).  
 * `((lambda (vi ... vn) e) ei ... en)` evaluates to `e`, where the variables `vi ... vn` take the values of expressions `ei ... en`.  
-* `((label f (lamda (vi ... vn) e)) ei ... en) evaluates to the same as `((lambda (vi ... vn) e) ei ... en)`, except that when `(f ai ... an)` is invoked, it is replaced with (label f (lambda (vi ... vn) e)). This allows for recursive functionality.  
+* `((label f (lamda (vi ... vn) e)) ei ... en)` evaluates to the same as `((lambda (vi ... vn) e) ei ... en)`, except that when `(f ai ... an)` is invoked, it is replaced with `(label f (lambda (vi ... vn) e))`. This allows for recursive functionality.  
 * `(print v)` will print the value `v` to the console.  
 * `(defun f (vi ... vn)) e)` will be used to permentantly defines function `f` so it can be reused.  
 * `(def s v)` will define the variable `s` as value `v`.  
