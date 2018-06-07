@@ -6,14 +6,15 @@ import eval.data.*;
 
 public class Add extends Function
 {
-    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace gnsp) {
+    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp, Namespace gnsp) {
 	int sum = 0;
 	for(int i = 0; i < args.length; i++) {
 	    if (args.length < 2) {
 		System.out.println("Error: add takes 2 or more arguments, " + args.length + " given");
 		System.exit(1);
 	    }
-	    Leaf argi = evaler.evalNode(args[i]);
+	    
+	    Leaf argi = evaler.evalNode(args[i], nsp, gnsp);
 	    if(argi == null) {
 		System.out.println("Error: add recieved null argument");
 		System.exit(1);
