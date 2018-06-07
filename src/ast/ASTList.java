@@ -39,8 +39,8 @@ public class ASTList extends Leaf {
 	return false;
     }
 
-    public boolean isEmpty() {
-	return _data.size() == 0;
+    public int size() {
+	return _data.size();
     } 
     
     /****************************
