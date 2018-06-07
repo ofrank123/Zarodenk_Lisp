@@ -63,7 +63,7 @@ public class ZEvaler implements Evaler {
 	    return (Leaf) n;
 	}
     }
-
+ 
     /*********************** 
      * Evaluates the AST passed and returns a Leaf.
      * Which AST can be evaluated to. Handles
@@ -81,9 +81,32 @@ public class ZEvaler implements Evaler {
 	for(int i = 1; i < ast.size(); i++) {
 	    args[i-1] = ast.get(i);
 	}
-        return nsp.getFunc(ast.get(0).getVal()).evalF(args, this, nsp);
+	return evalAsF(ast.get(0)).evalF(args, this, nsp);
+    }
+	
+    public Function evalAsF(Node f) {
+	if(f == NType.SYM) {
+	    return nsp.getFunc(f);
+	} else if (f.isAtomic || f == NType.LIST) {
+	    System.out.println("Error: " + f.getVal() + "Not a function");
+	    System.exit(1);
+	    return null;
+	} else {
+	    return lambda((AbstractSyntaxTree) fast);
+	}
     }
 
+    public Function lambda(AbstractSyntaxTree fast) {
+	if(fast.get(0).getVal() != "lambda") {
+	    System.out.println("Error: Function required, statement given");
+	    System.exit(1);
+	    return null;
+	}
+	if(fast.get(1).type != NType.AST) {
+	    System.out.println("Error: List of args required " + );
+	}
+    }
+    
     /*********************** 
      * Returns Errors.  Will probably be removed soon.
      * 
