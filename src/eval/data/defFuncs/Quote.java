@@ -20,7 +20,7 @@ public class Quote extends Function {
      * @params List of args, evaler, global namespace
      * @author Oliver Frank
      ***********************/
-    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace gnsp) {
+    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp, Namespace gnsp) {
 	if(args.length != 1) {
 	    System.out.println("Error: quote takes 1 arguments, " + (args.length - 1) + " found");
 	    System.exit(1);

@@ -19,14 +19,14 @@ public class Cdr extends Function
      *
      * @author Thet Htay Zaw
      ******************************/
-    public Leaf evalF(Node[] args , ZEvaler evaler, Namespace nsp) {
+    public Leaf evalF(Node[] args , ZEvaler evaler, Namespace nsp, Namespace gnsp) {
 	
 	if (args.length > 1) {
 	    System.out.println("Error: cdr takes one element, " +  args.length + " given");
 	    System.exit(1);
 	}
 
-	Leaf arg0 = evaler.evalNode(args[0], nsp);
+	Leaf arg0 = evaler.evalNode(args[0], nsp, gnsp);
 
 	if ( arg0 == null ) {
 	    System.out.println("Error: cdr received null argument");

@@ -38,7 +38,7 @@ public class ZEvaler implements Evaler {
 		System.out.println("Error: atoms not allowed in top level");
 		System.exit(1);
 	    }
-	    Leaf ev = evalNode(s, gnsp);
+	    Leaf ev = evalNode(s, gnsp, gnsp);
 	    if(ev != null) {
 		System.out.println(ev.getVal());
 	    }
@@ -52,16 +52,16 @@ public class ZEvaler implements Evaler {
      * @param Node to evaluate
      * @author Oliver Frank
      ***********************************************/
-    public Leaf evalNode(Node n, Namespace nsp) {
+    public Leaf evalNode(Node n, Namespace lnsp, Namespace gnsp) {
 	if(n.type == NType.SYM) {
-	    return nsp.getVar(n.getVal());
+	    return lnsp.getVar(n.getVal());
 	} else if (n.type == NType.AST){
-	    return evalAST((AbstractSyntaxTree) n, nsp);
+	    return evalAST((AbstractSyntaxTree) n, lnsp, gnsp);
 	} else {
 	    return (Leaf) n;
 	}
     }
- 
+    
     /*********************** 
      * Evaluates the AST passed and returns a Leaf.
      * Which AST can be evaluated to. Handles
@@ -70,7 +70,7 @@ public class ZEvaler implements Evaler {
      * @param AbstractSyntaxTree to evaluate
      * @author Oliver Frank
      ***********************/
-    public Leaf evalAST(AbstractSyntaxTree ast, Namespace nsp) {
+    public Leaf evalAST(AbstractSyntaxTree ast, Namespace lnsp, Namespace gnsp) {
 	if(ast.size() < 2) {
 	    System.out.println("Error: not a statement");
 	    System.exit(1);
@@ -79,12 +79,12 @@ public class ZEvaler implements Evaler {
 	for(int i = 1; i < ast.size(); i++) {
 	    args[i-1] = ast.get(i);
 	}
-	return evalAsF(ast.get(0), nsp).evalF(args, this, nsp);
+	return evalAsF(ast.get(0), lnsp, gnsp).evalF(args, this, lnsp, gnsp);
     }
-	
-    public Function evalAsF(Node f, Namespace nsp) {
+
+    public Function evalAsF(Node f, Namespace lnsp, Namespace gnsp) {
 	if(f.type == NType.SYM) {
-	    return nsp.getFunc(f.getVal());
+	    return lnsp.getFunc(f.getVal());
 	} else if (f.isAtomic() || f.type == NType.LIST) {
 	    System.out.println("Error: " + f.getVal() + "Not a function");
 	    System.exit(1);

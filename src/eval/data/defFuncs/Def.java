@@ -20,7 +20,7 @@ public class Def extends Function {
      * @params List of args, evaler, global namespace
      * @author Oliver Frank
      ***********************/
-    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp) {
+    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp, Namespace gnsp) {
 	if(args.length != 2) {
 	    System.out.println("Error: def takes 2 arguments, " + (args.length - 1) + " found");
 	    System.exit(1);
@@ -30,7 +30,7 @@ public class Def extends Function {
 	    System.exit(1);
 	}
 	//Add variable to global namespace
-	nsp.addVar(args[0].getVal(), evaler.evalNode(args[1], nsp));
+	nsp.addVar(args[0].getVal(), evaler.evalNode(args[1], nsp, gnsp));
 	return null;
     }
 }

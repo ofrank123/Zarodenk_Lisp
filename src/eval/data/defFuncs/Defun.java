@@ -19,15 +19,17 @@ public class Defun extends Function {
      * @params List of args, evaler, global namespace
      * @author Oliver Frank
      ***********************/
-    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp) {
+    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp, Namespace gnsp) {
 	if(args.length != 3) {
 	    System.out.println("Error: def takes 3 arguments, " + (args.length) + " found");
 	    System.exit(1);
 	}
+	
 	if(args[0].type != NType.SYM) {
 	    System.out.println("Error: mismatch between defined and actual types");
 	    System.exit(1);
 	}
+	
 	AbstractSyntaxTree passToLambda = new AbstractSyntaxTree();
 	passToLambda.add(new ASTSym("lambda"));
 	passToLambda.add(args[1]);
