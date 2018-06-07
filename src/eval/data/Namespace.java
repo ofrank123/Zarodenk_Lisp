@@ -1,6 +1,7 @@
 package eval.data;
 
 import java.util.HashMap;
+import eval.*;
 import eval.data.*;
 import eval.data.defFuncs.*;
 import ast.*;
@@ -14,18 +15,20 @@ import ast.*;
  ***********************/
 public class Namespace {
     private HashMap<String, Function> funcs;
-    private HashMap<String, String> vars;
-
+    private HashMap<String, Leaf> vars;
+    private ZEvaler evaler;
+    
     /*********************** 
      * Namespace to hold function and variable
      * definitions in hashmaps.
      * 
      * @author Oliver Frank
      ***********************/
-    public Namespace() {
+    public Namespace(ZEvaler cevaler) {
 	funcs = new HashMap<String, Function>();
-	vars = new HashMap<String, String>();
-
+	vars = new HashMap<String, Leaf>();
+	evaler = cevaler;
+	
 	/*******************************
          * DEFAULT FUNCTION DEFINITIONS
 	 *******************************/
@@ -54,8 +57,8 @@ public class Namespace {
      * @param name of var, value of variable
      * @author Oliver Frank
      ***********************/
-    public void addVar(String name, String l) {
-	vars.put(name, l);
+    public void addVar(String name, Leaf l) {
+	vars.put(name, evaler.evalNode(l));
     }
 
     /*********************** 
@@ -80,12 +83,12 @@ public class Namespace {
      * @param name of variable
      * @author Oliver Frank
      ***********************/
-    public String getVar(String name) {
+    public Leaf getVar(String name) {
 	if(vars.containsKey(name)) {
 	    return vars.get(name);
 	}
 	System.out.println("Error: No such variable: " + "\"" + name + "\"");
 	System.exit(1);
-	return "error";
+	return null;
     }
 }
