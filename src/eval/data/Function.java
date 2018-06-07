@@ -18,5 +18,5 @@ public abstract class Function {
      * @params List of args, evaler, global namespace
      * @author Oliver Frank
      ***********************/
-    public abstract Leaf evalF(Node[] args, ZEvaler evaler, Namespace gnsp);
+    public abstract Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp, Namespace gnsp);
 }

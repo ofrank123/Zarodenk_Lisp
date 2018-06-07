@@ -10,8 +10,7 @@ import eval.data.*;
  * 
  * @author Oliver Frank
  *********************/
-public class Def extends Function {
-
+public class Defun extends Function {
     
     /*********************** 
      * Defines a variable in the global namespace. Takes 2
@@ -21,16 +20,23 @@ public class Def extends Function {
      * @author Oliver Frank
      ***********************/
     public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp, Namespace gnsp) {
-	if(args.length != 2) {
-	    System.out.println("Error: def takes 2 arguments, " + (args.length - 1) + " found");
+	if(args.length != 3) {
+	    System.out.println("Error: def takes 3 arguments, " + (args.length) + " found");
 	    System.exit(1);
 	}
+	
 	if(args[0].type != NType.SYM) {
 	    System.out.println("Error: mismatch between defined and actual types");
 	    System.exit(1);
 	}
+	
+	AbstractSyntaxTree passToLambda = new AbstractSyntaxTree();
+	passToLambda.add(new ASTSym("lambda"));
+	passToLambda.add(args[1]);
+	passToLambda.add(args[2]);
+	
 	//Add variable to global namespace
-	nsp.addVar(args[0].getVal(), evaler.evalNode(args[1], nsp, gnsp));
+	nsp.addFunc(args[0].getVal(), evaler.lambda(passToLambda));
 	return null;
     }
 }
