@@ -30,7 +30,7 @@ public class Def extends Function {
 	    System.exit(1);
 	}
 	//Add variable to global namespace
-	gnsp.addVar(args[0].getVal(), evaler.evalNode(args[1]).getVal());
+	gnsp.addVar(args[0].getVal(), evaler.evalNode(args[1]));
 	return null;
     }
 }

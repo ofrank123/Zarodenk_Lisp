@@ -1,1 +1,2 @@
-(and T T (equal "a  " "a  "))
+(def a (quote ()))
+(cons a (quote ()))

@@ -23,7 +23,7 @@ public class ZEvaler implements Evaler {
      * @author Oliver Frank
      ***********************/
     public ZEvaler() {
-	nsp = new Namespace();
+	nsp = new Namespace(this);
     }
 
     /*********************** 
@@ -40,8 +40,9 @@ public class ZEvaler implements Evaler {
 		System.out.println("Error: atoms not allowed in top level");
 		System.exit(1);
 	    }
-	    if(evalNode(s) != null) {
-		System.out.println(evalNode(s).getVal());
+	    Leaf ev = evalNode(s);
+	    if(ev != null) {
+		System.out.println(ev.getVal());
 	    }
 	}
     }
@@ -54,24 +55,12 @@ public class ZEvaler implements Evaler {
      * @author Oliver Frank
      ***********************************************/
     public Leaf evalNode(Node n) {
-	if(n.isAtomic()) {
-	    if(n.type == NType.SYM) {
-		String val = nsp.getVar(n.getVal());
-		if(Pattern.matches("\"(.*?)\"", val)) {
-		    return new ASTStr(val);
-		} else if (Pattern.matches("[-+]?\\d+", val)) {
-		    return new ASTNum(val);
-		} else if (Pattern.matches("T|NIL", val)) {
-		    return new ASTBool(val);
-		} else {
-		    return evalNode(new ASTSym(val));
-		}
-	    }
-	    else {
-		return (Leaf) n;
-	    }
-	} else {
+	if(n.type == NType.SYM) {
+	    return nsp.getVar(n.getVal());
+	} else if (n.type == NType.AST){
 	    return evalAST((AbstractSyntaxTree) n);
+	} else {
+	    return (Leaf) n;
 	}
     }
 
@@ -92,7 +81,7 @@ public class ZEvaler implements Evaler {
 	for(int i = 1; i < ast.size(); i++) {
 	    args[i-1] = ast.get(i);
 	}
-	return nsp.getFunc(ast.get(0).getVal()).evalF(args, this, nsp);
+        return nsp.getFunc(ast.get(0).getVal()).evalF(args, this, nsp);
     }
 
     /*********************** 

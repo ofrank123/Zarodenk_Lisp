@@ -5,5 +5,6 @@ public enum NType {
     SYM,
     NUM,
     STR,
-    BOOL
+    BOOL,
+    LIST
 }

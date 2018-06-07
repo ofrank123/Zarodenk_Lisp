@@ -19,26 +19,30 @@ public class Cons extends Function
      *
      * @author Thet Htay Zaw
      ****************************************************************/
-    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace gnsp){
-	
+    public Leaf evalF(Node[] args, ZEvaler evaler, Namespace gnsp) {
 	if (args.length != 2) {
 	    System.out.println("Error: cons takes two arguments, " + args.length + " given");
 	    System.exit(1);
 	}
 
-	if (evaler.evalNode(args[0]) == null || evaler.evalNode(args[1]) == null ) {
+	Leaf arg0 = evaler.evalNode(args[0]);
+	Leaf arg1 = evaler.evalNode(args[1]);
+	
+	if (arg0 == null ||  arg1 == null ) {
 	    System.out.println("Error: cons received null argument");
 	    System.exit(1);
 	} 
-
-	if ( evaler.evalNode(args[1]).type != NType.AST ) {
-	    System.out.println("Error: cons second parameter only takes an AST, " + args[1].type + " given");
+	
+	if ( arg1.type != NType.LIST ) {
+	    System.out.println("Error: cons second parameter only takes a List, " + args[1].type + " given");
 	    System.exit(1);
 	}
-
+	
 	else {
-	    args[1].addLeaf(args[0]);
-	    return args[1];
+	    ASTList ret = ((ASTList) arg1);
+	    ret.addLeaf(arg0);
+	    return ret;
 	}
+	return null;
     }
 }

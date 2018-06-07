@@ -35,6 +35,8 @@ public class Namespace {
 	addFunc("quote", new Quote());
 	addFunc("def", new Def());
 	addFunc("equal", new Equal());
+	//List Handling
+	addFunc("cons", new Cons());
 	//Boolean Operators
 	addFunc("and", new And());
 	addFunc("not", new Not());
@@ -58,7 +60,7 @@ public class Namespace {
      * @author Oliver Frank
      ***********************/
     public void addVar(String name, Leaf l) {
-	vars.put(name, evaler.evalNode(l));
+	vars.put(name, l);
     }
 
     /*********************** 
