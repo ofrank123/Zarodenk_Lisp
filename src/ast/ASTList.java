@@ -38,6 +38,10 @@ public class ASTList extends Leaf {
     public boolean isAtomic() {
 	return false;
     }
+
+    public boolean isEmpty() {
+	return _data.size() == 0;
+    } 
     
     /****************************
      * returns string version of list

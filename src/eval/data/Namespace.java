@@ -37,6 +37,7 @@ public class Namespace {
 	addFunc("equal", new Equal());
 	//List Handling
 	addFunc("cons", new Cons());
+	addFunc("car", new Car());
 	//Boolean Operators
 	addFunc("and", new And());
 	addFunc("not", new Not());
