@@ -35,7 +35,9 @@ public class Namespace {
 	addFunc("quote", new Quote());
 	addFunc("def", new Def());
 	addFunc("equal", new Equal());
+	addFunc("=", new Equal());
 	addFunc("defun", new Defun());
+	addFunc("cond", new Cond());
 	//List Handling
 	addFunc("cons", new Cons());
 	addFunc("cdr", new Cdr());
