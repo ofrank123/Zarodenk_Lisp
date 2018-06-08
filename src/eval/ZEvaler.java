@@ -3,7 +3,6 @@ package eval;
 import ast.*;
 import common.*;
 import eval.data.*;
-import error.RuntimeError;
 import java.util.regex.Pattern;
 
 /***********************

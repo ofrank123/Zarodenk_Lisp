@@ -54,7 +54,7 @@ public class Namespace {
 	addFunc("*", new Multiply());
 	addFunc("/", new Divide());	
 	addFunc("pow", new Exponent());
-	addFunc("%"), new Modulo());
+	addFunc("%", new Modulo());
 	//comparators
 	addFunc(">", new Greater());
 	addFunc("<", new Less());

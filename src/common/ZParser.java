@@ -1,7 +1,6 @@
 package common;
 
 import ast.*;
-import error.SyntacticalError;
 /*
   Zarodenk_Lisp 2018
   by Oliver Frank, Thet Htay Zaw, and Jude Grodesky
@@ -93,13 +92,4 @@ public class ZParser implements Parser
     public AbstractSyntaxTree getAST() {
 	return _tree;
     } 
-
-    /********************************************
-     * Returns an array of all syntactical errors
-     *
-     * @author Oliver Frank
-     ********************************************/
-    public SyntacticalError[] getSyntacticalErrors() {
-	return null;
-    }    
 } 

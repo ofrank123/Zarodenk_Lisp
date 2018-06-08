@@ -1,6 +1,5 @@
 package common;
 
-import error.LexicalError;
 import java.util.LinkedList;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -28,7 +27,7 @@ public class ZLexer implements Lexer
      **********************************************/
     public void buildLexer(String path) throws IOException
     {
-	path = "../ZLispExamples/" + path;
+	//path = "../ZLispExamples/" + path;
 	_tokenQueue = new LinkedList<Token>();
 
 	//Convert the file into a string

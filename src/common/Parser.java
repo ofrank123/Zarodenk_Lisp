@@ -1,6 +1,5 @@
 package common;
 
-import error.SyntacticalError;
 import ast.*;
 
 /*

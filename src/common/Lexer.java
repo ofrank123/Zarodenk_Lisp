@@ -1,7 +1,6 @@
 package common;
 
 import java.io.File;
-import error.LexicalError;
 import java.io.IOException;
 /*
   Zarodenk Lisp 2018
