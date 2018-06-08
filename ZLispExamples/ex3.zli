@@ -1,3 +1,13 @@
+#comment example
+(def a 3) #comment example
+
+/*
+ Multiline
+ Comment
+ Example
+*/
+
+#Recursive defun example
 (defun fibn (n)
   (cond ((= n 0) 0)
         ((= n 1) 1)
@@ -7,10 +17,12 @@
 	      
 (fibn 7)
 
-(def f (lambda (a b) (+ a b)))
+#Simple lambda demo
+(def f (lambda (c b) (+ a b)))
 
 (f 3 5)
 
+#Recursive label demo
 ((label fibnL (lambda (n)
   (cond ((= n 0) 0)
         ((= n 1) 1)
