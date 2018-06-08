@@ -42,6 +42,7 @@ public class Namespace {
 	addFunc("cons", new Cons());
 	addFunc("cdr", new Cdr());
 	addFunc("car", new Car());
+	addFunc("list" , new List());
 	//Boolean Operators
 	addFunc("and", new And());
 	addFunc("not", new Not());
