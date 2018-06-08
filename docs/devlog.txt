@@ -14,28 +14,24 @@ A Lisp interpreter for our custom LISP dialect, built in Java and running on the
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<Wow, we so BOSS bc...>
+Splitting up of tasks was initially difficult, as each task interlinked in such a way that one needed to be done before the next was.  This was effectivly dealt with by writing interface to use that could later be implemented.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<
-blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
->
+Error handling could be cleaner, but most of the weird cases that could be encountered have been considered. We're pretty robust as far as bugs are concerned.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<wow! oo! etc!...>
+Learned Regular Expressions, which will be super useful when we eventually become underpaid, overworked, web-scraping interns.  Really tested our git wizardry, and dealt with some nasty merge conflicts wizardry.  
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We changed ___ to ___ bc...
-<etc>
-<etc>
+Instead of converting trees to primitive data and using that we kept it all in tree form.  This was what worked best with the highly recursive nature of our evaluation algorithm, as we could pass subtrees back and forth easily.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<tales of wisdom gained...>
+The power of building a solid code base to build on was learned the hard way.  Initial attempts to throw the code together with duck-tape and popsickle sticks were unfruitful.  Once we had a solid base to work on features basically wrote themselves.  
+
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -86,14 +82,22 @@ ThetHtayZaw :: Comments, Tester files, Typecasting workaround
 2018-06-05
 --------------------------------------------------------------
 ThetHtayZaw :: Plan and UML update. Minor README update
+OddFuture :: General fixes, very basic eval working
 ==============================================================
 
 2018-06-06
 --------------------------------------------------------------
 ThetHtayZaw :: cons function class
+OddFuture :: eval robustified, functions abstracted. Lists ad-
+ded. Namespaces set up.  Def function class and quote added.
 ==============================================================
 
 2018-06-07
 --------------------------------------------------------------
 ThetHtayZaw :: Car, Cdr, List, Atom function classes
+OddFuture :: User defined functions added via lambda, label a-
+nd defun keywords.  Cond keyword added.  Recursion robustified.
+JudeGrodesky :: Addition, Subtraction, Multiplication, Division
+Exponents, Modulo, Greater than, Less than, & combined
+Comparators.
 ==============================================================
