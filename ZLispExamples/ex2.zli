@@ -1,2 +1,35 @@
-(func 123 (func "str" 2) var)
-(beep 1)
+/***************************************
+
+           BOOLEAN OPERATIONS
+
+****************************************/
+
+#equality comparison between any data
+(= "str" 2)
+(= 3 "3") #ints are not equal to their string value
+(= 3 3)
+(= "foo" "foo")
+
+(print "========================================")
+
+#boolean numerical comparison
+(> 3 2)
+(<= 2 (+ 3 2))
+(>= (- 2 2) 3)
+(< 1 5)
+
+(print "========================================")
+
+#boolean operators
+(not T)
+(not (not NIL))
+(and T (not (< 3 2)))
+(and T (and T NIL))
+(or NIL NIL T)
+(or NIL (not T))
+
+(print "========================================")
+
+#short circuiting
+(and NIL (+ 2 3))
+(or T NIL (* 2 3)) 

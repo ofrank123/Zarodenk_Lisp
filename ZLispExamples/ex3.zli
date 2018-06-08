@@ -1,31 +1,45 @@
-#comment example
-(def a 3) #comment example
+/************************************
 
-/*
- Multiline
- Comment
- Example
-*/
+           LIST PROCESSING
 
-#Recursive defun example
-(defun fibn (n)
-  (cond ((= n 0) 0)
-        ((= n 1) 1)
-	((= n 2) 1)
-	(T (+ (fibn (- n 1))
-	      (fibn (- n 2))))))
-	      
-(fibn 7)
+*************************************/
 
-#Simple lambda demo
-(def f (lambda (c b) (+ a b)))
+#quote - returns literal value
+(quote ())
+(quote (3 4))
 
-(f 3 5)
+(print "========================================")
 
-#Recursive label demo
-((label fibnL (lambda (n)
-  (cond ((= n 0) 0)
-        ((= n 1) 1)
-	((= n 2) 1)
-	(T (+ (fibnL (- n 1))
-	      (fibnL (- n 2))))))) 7)
+#' macro (cannot be used on top level)
+(print '())
+(print '(3 4 5 6))
+
+(print "========================================")
+
+#atomicity check
+
+(atom 3)
+(atom '(3 4 5))
+(atom "str")
+(atom '())
+
+(print "========================================")
+
+#list construction
+(cons 3 '())
+(cons (quote (2 3 4)) '())
+(cons 3 '(T NIL "str"))
+(cons "str" (cons 3 (cons T '())))
+(list 2 3 (quote ()) "str")
+(list 3 4 5 (quote (1 2 3)) T)
+
+(print "========================================")
+
+#processing
+(car (list 3 4 5))
+(cdr (list 3 4 5))
+(car (cdr (list 3 4 5)))
+(car (car (cons (quote ("str" 1 2 3)) '(1 2 3))))
+(car (cdr (car (cons (quote ("str" 1 2 3)) '(1 2 3)))))
+
+(print "========================================")

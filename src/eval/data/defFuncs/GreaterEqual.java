@@ -29,10 +29,10 @@ public class GreaterEqual extends Function
 	}
 	boolean bool = Integer.valueOf( left.getVal()) >= Integer.valueOf( right.getVal());
 	if(bool){
-	    return new ASTNum("T");
+	    return new ASTBool("T");
 	}
 	else{
-	    return new ASTNum("NIL");
+	    return new ASTBool("NIL");
 	}
     }
 }

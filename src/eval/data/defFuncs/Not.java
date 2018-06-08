@@ -7,7 +7,7 @@ import eval.data.*;
 
 public class Not extends Function {
     public Leaf evalF(Node[] args, ZEvaler evaler, Namespace nsp, Namespace gnsp) {
-	if(args.length > 1) {
+	if(args.length != 1) {
 	    System.out.println("Error: not takes one argument, " + args.length + " given");
 	    System.exit(1);
 	}

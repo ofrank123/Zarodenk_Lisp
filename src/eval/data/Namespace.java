@@ -39,6 +39,7 @@ public class Namespace {
 	addFunc("defun", new Defun());
 	addFunc("cond", new Cond());
 	addFunc("atom", new Atom());
+	addFunc("print", new Print());
 	//List Handling
 	addFunc("cons", new Cons());
 	addFunc("cdr", new Cdr());
@@ -46,7 +47,7 @@ public class Namespace {
 	addFunc("list" , new List());
 	//Boolean Operators
 	addFunc("and", new And());
-	addFunc("not", new Not());
+	addFunc("not", new Not()); 
 	addFunc("or", new Or());
 	//Arithmetic
 	addFunc("+", new Add());
@@ -59,7 +60,7 @@ public class Namespace {
 	addFunc(">", new Greater());
 	addFunc("<", new Less());
 	addFunc(">=", new GreaterEqual());
-	addFunc(">=", new LessEqual());
+	addFunc("<=", new LessEqual());
     }
 
     public Namespace(ZEvaler cevaler, Namespace nsp) {

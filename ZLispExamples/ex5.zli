@@ -1,0 +1,51 @@
+/**************************************
+
+              FUNCTIONS
+	      
+***************************************/
+
+
+#lambda expression
+((lambda (a b) (* a b)) 2 4)
+
+(print "========================================")
+
+#giving var name to lambda function
+(def f (lambda (a b) (+ a b)))
+
+(f 3 5)
+
+(print "========================================")
+
+#defun keyword
+(defun myCons (a b)
+  (cons a b))
+  
+(myCons 3 '())
+
+(print "========================================")
+
+#label for recursion
+((label fibnL (lambda (n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+	((= n 2) 1)
+	(T (+ (fibnL (- n 1))
+	      (fibnL (- n 2))))))) 7)
+
+(print "========================================")
+
+#Recursive defun example
+(defun fibn (n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+	((= n 2) 1)
+	(T (+ (fibn (- n 1))
+	      (fibn (- n 2))))))
+	      
+(fibn 8)
+
+(print "========================================")
+
+
+
