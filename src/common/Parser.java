@@ -30,15 +30,5 @@ public interface Parser {
      *
      * @author Thet Htay Zaw
      ************************/
-    public AbstractSyntaxTree getAST();
-
-    /************************
-     * Return a list of syntactical errors encountered
-     * Any syntactical errors found (such as too few/many parens, or malformed s expressions)
-     * will be caught and thrown as errors
-     *
-     * @author Thet Htay Zaw
-     ************************/
-    public SyntacticalError[] getSyntacticalErrors();
-    
+    public AbstractSyntaxTree getAST();    
 }

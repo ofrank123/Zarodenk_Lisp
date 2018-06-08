@@ -131,13 +131,4 @@ public class ZEvaler implements Evaler {
 	    return new UserFunc((UserFunc) lambda((AbstractSyntaxTree) fast.get(2)), fast.get(1).getVal());
 	}
     }
-    
-    /*********************** 
-     * Returns Errors.  Will probably be removed soon.
-     * 
-     * @author Oliver Frank
-     ***********************/
-    public RuntimeError[] getRuntimeErrors() {
-	return null;
-    }
 }

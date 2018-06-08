@@ -12,6 +12,4 @@ import error.RuntimeError;
 public interface Evaler {
 
     public void evaluate(AbstractSyntaxTree ast);
-    
-    public RuntimeError[] getRuntimeErrors();
 }
