@@ -5,4 +5,15 @@
 	(T (+ (fibn (- n 1))
 	      (fibn (- n 2))))))
 	      
-(fibn 6)
+(fibn 7)
+
+(def f (lambda (a b) (+ a b)))
+
+(f 3 5)
+
+((label fibnL (lambda (n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+	((= n 2) 1)
+	(T (+ (fibnL (- n 1))
+	      (fibnL (- n 2))))))) 7)

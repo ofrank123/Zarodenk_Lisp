@@ -95,26 +95,41 @@ public class ZEvaler implements Evaler {
     }
 
     public Function lambda(AbstractSyntaxTree fast) {
-	if(!fast.get(0).getVal().equals("lambda")) {
+	if(!fast.get(0).getVal().equals("lambda") && !fast.get(0).getVal().equals("label")) {
 	    System.out.println("Error: Function required, statement given");
 	    System.exit(1);
 	    return null;
-	}
-	if(fast.get(1).type != NType.AST) {
-	    System.out.println("Error: List of args required as first argument");
-	    System.exit(1);
-	}
-	AbstractSyntaxTree argAst = (AbstractSyntaxTree) fast.get(1);
-	ASTSym[] argNames = new ASTSym[argAst.size()];
-	for(int i = 0; i < argAst.size(); i++) {
-	    if(argAst.get(i).type != NType.SYM) {
-		System.out.println("Error: List of sybols required");
+	} if(fast.get(0).getVal().equals("lambda")) {
+	    if(fast.get(1).type != NType.AST) {
+		System.out.println("Error: List of args required as first argument");
 		System.exit(1);
-	    } else {
-		argNames[i] = (ASTSym) argAst.get(i);
 	    }
+	    AbstractSyntaxTree argAst = (AbstractSyntaxTree) fast.get(1);
+	    ASTSym[] argNames = new ASTSym[argAst.size()];
+	    for(int i = 0; i < argAst.size(); i++) {
+		if(argAst.get(i).type != NType.SYM) {
+		    System.out.println("Error: List of sybols required");
+		    System.exit(1);
+		} else {
+		    argNames[i] = (ASTSym) argAst.get(i);
+		}
+	    }
+	    return new UserFunc(argNames, fast.get(2));
+	} else {
+	    if(fast.size() != 3) {
+		System.out.println("Error: label takes 2 args, " + (fast.size()-1) + " given" );
+		System.exit(1);
+	    }
+	    if(fast.get(1).type != NType.SYM) {
+		System.out.println("Error: label requires a symbol as the first argument");
+		System.exit(1);
+	    }
+	    if(fast.get(2).type != NType.AST) {
+		System.out.println("Error: label requires a lambda function as the second argument");
+		System.exit(1);
+	    }
+	    return new UserFunc((UserFunc) lambda((AbstractSyntaxTree) fast.get(2)), fast.get(1).getVal());
 	}
-	return new UserFunc(argNames, fast.get(2));
     }
     
     /*********************** 
