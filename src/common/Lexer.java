@@ -48,13 +48,5 @@ public interface Lexer {
      * @author Oliver Frank
      *************************************************/
     public Token peekToken();
-    
-    /************************************************
-     * Returns a list of lexical errors encountered.
-     * Any tokens not recognized by the lexer will be
-     * caught and thrown as errors.
-     *
-     * @author Oliver Frank
-     ************************************************/
-    public LexicalError[] getLexicalErrors();
+
 } //end interface Lexer

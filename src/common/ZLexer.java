@@ -42,7 +42,7 @@ public class ZLexer implements Lexer
 	 ************************************************/
 	
 	//deal w/ comments
-	contents = contents.replaceAll("#(.*)\\n|\\r\\n", ""); //single line comments
+	contents = contents.replaceAll("#(.*)", ""); //single line comments
 	contents = contents.replaceAll("\\/\\*((.|\\n)*)\\*\\/", ""); //multiline comments
 	
         contents = contents.replaceAll("\\(", " ( ");
@@ -91,16 +91,4 @@ public class ZLexer implements Lexer
     {
 	return _tokenQueue.peekFirst();
     }
-    
-    /**********************************************
-     *Returns Lexical Errors found excecuting 
-     *buildLexer
-     *
-     *@author Jude Grodesky
-     **********************************************/
-    public LexicalError[] getLexicalErrors() {
-	LexicalError[] errors = new LexicalError[1];
-	return errors;
-    }
-    
 }
