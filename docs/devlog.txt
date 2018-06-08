@@ -86,14 +86,19 @@ ThetHtayZaw :: Comments, Tester files, Typecasting workaround
 2018-06-05
 --------------------------------------------------------------
 ThetHtayZaw :: Plan and UML update. Minor README update
+OddFuture :: General fixes, very basic eval working
 ==============================================================
 
 2018-06-06
 --------------------------------------------------------------
 ThetHtayZaw :: cons function class
+OddFuture :: eval robustified, functions abstracted. Lists ad-
+ded. Namespaces set up.  Def function class and quote added.
 ==============================================================
 
 2018-06-07
 --------------------------------------------------------------
 ThetHtayZaw :: Car, Cdr, List, Atom function classes
+OddFuture :: User defined functions added via lambda, label a-
+nd defun keywords.  Cond keyword added.  Recursion robustified.
 ==============================================================
