@@ -45,7 +45,10 @@ public class Namespace {
 	addFunc("not", new Not());
 	addFunc("or", new Or());
 	//Arithmetic
-	addFunc("+", new Add());	
+	addFunc("+", new Add());
+	addFunc("-", new Subtract());
+	addFunc("*", new Multiply());
+	addFunc("/", new Divide());	
     }
 
     public Namespace(ZEvaler cevaler, Namespace nsp) {
