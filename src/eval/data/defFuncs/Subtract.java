@@ -21,7 +21,7 @@ public class Subtract extends Function
 		System.out.println("Error: subtract takes only a num, " + args[i].type + " given");
 		System.exit(1);
 	    }
-	    if ( i == 0){
+	    if ( i == 0 && args.length > 1){
 		difference = Integer.valueOf( argi.getVal());		
 	    }
 	    else {
