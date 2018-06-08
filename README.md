@@ -1,10 +1,6 @@
 # Zarodenk_Lisp  
 ![Alt logo](img/LogoColorPNG.png "logo")
 
-## Demo Launch Instructions
-1. Clone the repository
-2. Type `./demo.sh` in the command line to run the demo file
-
 ## Any ZLisp File Instructions
 1. Clone the repository
 2. Use `./zlisp <filename>` to evaluate a file. Examples provided in the ZLispExamples file
