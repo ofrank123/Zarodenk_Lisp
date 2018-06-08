@@ -35,16 +35,21 @@ public class ZLexer implements Lexer
 	byte[] encoded = Files.readAllBytes(Paths.get(path));
 	String contents = new String(encoded, StandardCharsets.US_ASCII);
 
+	/************************************************
+	 *
+	 *       WHOLE LOTTA REGEX MAGIC ~~*~***~~~~**
+	 *
+	 ************************************************/
+	
 	//deal w/ comments
-	contents = contents.replaceAll("#(.*)\\n", "");
-	contents = contents.replaceAll("\\/\\*((.|\\n)*)\\*\\/", "");
+	contents = contents.replaceAll("#(.*)\\n", ""); //single line comments
+	contents = contents.replaceAll("\\/\\*((.|\\n)*)\\*\\/", ""); //multiline comments
 	
         contents = contents.replaceAll("\\(", " ( ");
 	contents = contents.replaceAll("\\)", " ) ");
 	contents = contents.replaceAll("'", " ' ");
-	/*WARNING --- DON'T TOUCH --- WARNING*/
-	String regex = "\"([^\"]*)\"|(\\S+)"; //Voodoo magic
-	/*WARNING --- DON'T TOUCH --- WARNING*/
+
+	String regex = "\"([^\"]*)\"|(\\S+)";
 	
 	Matcher m = Pattern.compile(regex).matcher(contents);
 	while (m.find()) {
