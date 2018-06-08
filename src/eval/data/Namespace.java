@@ -53,7 +53,12 @@ public class Namespace {
 	addFunc("-", new Subtract());
 	addFunc("*", new Multiply());
 	addFunc("/", new Divide());	
-	addFunc("expn", new Exponent());
+	addFunc("pow", new Exponent());
+	//comparators
+	addFunc(">", new Greater());
+	addFunc("<", new Less());
+	addFunc(">=", new GreaterEqual());
+	addFunc(">=", new LessEqual());
     }
 
     public Namespace(ZEvaler cevaler, Namespace nsp) {

@@ -35,11 +35,11 @@ public class ZLexer implements Lexer
 	byte[] encoded = Files.readAllBytes(Paths.get(path));
 	String contents = new String(encoded, StandardCharsets.US_ASCII);
 
-	/************************************************
+	/********************************************************************
 	 *
-	 *       WHOLE LOTTA REGEX MAGIC ~~*~***~~~~**
+	 *        ~~~*~*~**~~~ WHOLE LOTTA REGEX MAGIC ~~*~***~~~~**
 	 *
-	 ************************************************/
+	 ********************************************************************/
 	
 	//deal w/ comments
 	contents = contents.replaceAll("#(.*)", ""); //single line comments
