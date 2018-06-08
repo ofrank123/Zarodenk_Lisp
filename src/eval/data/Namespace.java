@@ -51,6 +51,7 @@ public class Namespace {
 	addFunc("-", new Subtract());
 	addFunc("*", new Multiply());
 	addFunc("/", new Divide());	
+	addFunc("expn", new Exponent());
     }
 
     public Namespace(ZEvaler cevaler, Namespace nsp) {
