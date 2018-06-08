@@ -42,7 +42,7 @@ public class ZLexer implements Lexer
 	 ************************************************/
 	
 	//deal w/ comments
-	contents = contents.replaceAll("#(.*)\\n", ""); //single line comments
+	contents = contents.replaceAll("#(.*)\\n|\\r\\n", ""); //single line comments
 	contents = contents.replaceAll("\\/\\*((.|\\n)*)\\*\\/", ""); //multiline comments
 	
         contents = contents.replaceAll("\\(", " ( ");
