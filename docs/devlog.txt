@@ -97,4 +97,5 @@ ded. Namespaces set up.  Def function class and quote added.
 ThetHtayZaw :: Car, Cdr, List, Atom function classes
 OddFuture :: User defined functions added via lambda, label a-
 nd defun keywords.  Cond keyword added.  Recursion robustified.
+JudeGrodesky :: +, -, *, /, ^, %, <, >, <=, >=
 ==============================================================
