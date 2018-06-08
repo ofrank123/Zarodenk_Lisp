@@ -3,7 +3,7 @@
 
 ## Launch Instructions
 1. Clone the repository
-2. Type `./demo.sh` in the command line
+2. Type `./demo.sh` in the command line to run the demo file
 
 ## Overview  
 
@@ -11,13 +11,14 @@ A Lisp interpreter for our custom LISP dialect, built in Java and running on the
 
 ## Functionality
 ### Data Types
-* `Number`- initially these will be integers, but floating points will be added eventually  
+* `Number`- stores integers
 * `String`- stored in java's native `String` type  
 * `Boolean`- with `T` for true and `NIL` for false  
 
 ### Data Structures
 * `List`- constructed using cons, stored as a `LinkedList` in Java  
-* `atom`- stores one primitive datatype  
+* `atom`- stores one primitive datatype
+* `Function` - functions will be defined by the lambda keyword
 
 ### Functions
 Initially, the following predefined functions will be availible to users of Zarodenk Lisp. These definitions are paraphrased from the John McCarthy paper mentioned above.
@@ -29,7 +30,7 @@ Initially, the following predefined functions will be availible to users of Zaro
 * `(atom e)` evaluates to `T` if the expression.  
 * `(cond (pi ei) .. (pn en))` evaluates to value ei where pi is the first of the p's whose value is NOT `NIL` (or `T`).  
 * `((lambda (vi ... vn) e) ei ... en)` evaluates to `e`, where the variables `vi ... vn` take the values of expressions `ei ... en`.  
-* `((label f (lamda (vi ... vn) e)) ei ... en)` evaluates to the same as `((lambda (vi ... vn) e) ei ... en)`, except that when `(f ai ... an)` is invoked, it is replaced with `(label f (lambda (vi ... vn) e))`. This allows for recursive functionality.  
+* `((label f (lambda (vi ... vn) e)) ei ... en)` evaluates to the same as `((lambda (vi ... vn) e) ei ... en)`, except that when `(f ai ... an)` is invoked, it is replaced with `(label f (lambda (vi ... vn) e))`. This allows for recursive functionality.  
 * `(print v)` will print the value `v` to the console.  
 * `(defun f (vi ... vn)) e)` will be used to permentantly defines function `f` so it can be reused.  
 * `(def s v)` will define the variable `s` as value `v`.  
@@ -49,9 +50,7 @@ Initially, the following predefined functions will be availible to users of Zaro
 
 ## Interpreter
 ![Alt ZLisp broad phase](img/ZLispBroadDiagram.png "broadphase diagram")
-
-### Preprocessor  
-Any files that are included using the `#include "filename"` directive will be copied directly into the string passed to the lexer in order.  The `#macro "find" "replace"` directive will replace all instances of the find string with the replace string.  These features will be added much later, as they are secondary to our primary goal, which is getting a working interpreter up and running.
+(preprocessor discontinued)
 
 ### Lexer (Lexical Analysis)
 The lexer will take the raw LISP code and turn it into a queue of tokens to be read by the parser.  It will accomplish this via the following steps:
@@ -63,7 +62,8 @@ The lexer will take the raw LISP code and turn it into a queue of tokens to be r
    * `RPAREN`- `)`  
    * `SYM`- `a` (any none primitive `atom`) 
    * `STR`- `"a"`  
-   * `NUM`- `1` (floating points to be added later)  
+   * `NUM`- `1`
+   * `BOOL` - `T` or `NIL`
 5. The queue of tokens will be returned and subsequently fed to the parser
 NOTE: conditional (`cond`) are the exception to the function rule mentioned above, as they are of the form `(cond (S-EXPR S-EXPR) (S-EXPR S-EXPR))`, where the first `S-EXPR` where the value of the expression is the value of which ever `S-EXPR` evaluates true first  
 
