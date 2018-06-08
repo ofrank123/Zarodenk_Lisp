@@ -80,4 +80,20 @@ ThetHtayZaw :: Incomplete Implementation of ZParser
 
 2018-06-03
 --------------------------------------------------------------
-ThetHtayZaw :: JavaDoc Comments, Tester files, Typecasting workaround
+ThetHtayZaw :: Comments, Tester files, Typecasting workaround
+==============================================================
+
+2018-06-05
+--------------------------------------------------------------
+ThetHtayZaw :: Plan and UML update. Minor README update
+==============================================================
+
+2018-06-06
+--------------------------------------------------------------
+ThetHtayZaw :: cons function class
+==============================================================
+
+2018-06-07
+--------------------------------------------------------------
+ThetHtayZaw :: Car, Cdr, List, Atom function classes
+==============================================================
