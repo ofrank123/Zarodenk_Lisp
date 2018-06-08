@@ -35,6 +35,10 @@ public class ZLexer implements Lexer
 	byte[] encoded = Files.readAllBytes(Paths.get(path));
 	String contents = new String(encoded, StandardCharsets.US_ASCII);
 
+	//deal w/ comments
+	contents = contents.replaceAll("#(.*)\\n", "");
+	contents = contents.replaceAll("\\/\\*((.|\\n)*)\\*\\/", "");
+	
         contents = contents.replaceAll("\\(", " ( ");
 	contents = contents.replaceAll("\\)", " ) ");
 	contents = contents.replaceAll("'", " ' ");
